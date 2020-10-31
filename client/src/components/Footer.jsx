@@ -8,6 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 
 const FooterClass = styled.footer`
   background-color: #030c27;
+  color: white;
 `;
 
 const ContainerWrapper = styled(Container)`
@@ -20,7 +21,9 @@ const FlexWrapper = styled(Flex)`
   div {
     p {
       margin: 0.8rem 0;
+      font-size: small;
     }
+    text-align: center;
   }
   @media (max-width: 500px) {
     flex-direction: column;

@@ -1,7 +1,19 @@
 import React from "react";
-import { Button, ButtonOutline, Card, FormControl, Grid } from "../utils/style";
+import {
+  BaseColor,
+  Button,
+  ButtonOutline,
+  Card,
+  Container,
+  FormControl,
+  Grid,
+} from "../utils/style";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+const BaseColorMap = styled(BaseColor)`
+  position: relative;
+`;
 
 const ShowCaseSection = styled(Grid)`
   grid-template-columns: 55% 35%;
@@ -12,7 +24,7 @@ const ShowCaseSection = styled(Grid)`
     content: "";
     position: absolute;
     height: 100px;
-    bottom: -80px;
+    top: 90%;
     right: 0;
     left: 0;
     transform: skewY(-3deg);
@@ -33,12 +45,13 @@ const ShowCaseSection = styled(Grid)`
   }
   @media (max-width: 786px) {
     grid-template-columns: 1fr;
+    padding-top: 1rem;
     height: auto;
-    margin-top: 5rem;
+    margin-top: 2.9rem;
     text-align: center;
-    /* div {
-      margin: 0 auto;
-    } */
+  }
+  @media (max-width: 500px) {
+    padding-top: 3rem;
   }
 `;
 
@@ -61,27 +74,31 @@ const Form = styled.form``;
 
 const ShowCase = () => {
   return (
-    <ShowCaseSection>
-      <div>
-        <h1 className="h1">Easy Enrollment</h1>
-        <p className="p">Complete MERN Track Path. Now Available!</p>
-        <Link to="/item-id">
-          <ButtonOutline>Learn More</ButtonOutline>
-        </Link>
-      </div>
-      <CardWrapper>
-        <h2 className="h1">Request Syllabus</h2>
-        <Form>
-          <FormControl>
-            <input type="text" name="name" placeholder="Name" required />
-          </FormControl>
-          <FormControl>
-            <input type="email" name="email" placeholder="Email" required />
-          </FormControl>
-          <Button type="submit">Request</Button>
-        </Form>
-      </CardWrapper>
-    </ShowCaseSection>
+    <BaseColorMap>
+      <Container>
+        <ShowCaseSection>
+          <div>
+            <h1 className="h1">Easy Enrollment</h1>
+            <p className="p">Complete MERN Track Path. Now Available!</p>
+            <Link to="/item-id">
+              <ButtonOutline>Learn More</ButtonOutline>
+            </Link>
+          </div>
+          <CardWrapper>
+            <h2 className="h1">Request Syllabus</h2>
+            <Form>
+              <FormControl>
+                <input type="text" name="name" placeholder="Name" required />
+              </FormControl>
+              <FormControl>
+                <input type="email" name="email" placeholder="Email" required />
+              </FormControl>
+              <Button type="submit">Request</Button>
+            </Form>
+          </CardWrapper>
+        </ShowCaseSection>
+      </Container>
+    </BaseColorMap>
   );
 };
 
