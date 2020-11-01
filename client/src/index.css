@@ -48,3 +48,9 @@ ul li:last-child {
 .active {
   border-bottom: 4px solid #b0dcff;
 }
+
+@media (max-width: 500px) {
+  .active {
+    border-bottom: 2px solid #041420;
+  }
+}
