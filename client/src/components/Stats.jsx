@@ -1,11 +1,27 @@
 import React from "react";
 import { Grid } from "../utils/style";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import GroupIcon from "@material-ui/icons/Group";
 import LaptopChromebookIcon from "@material-ui/icons/LaptopChromebook";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 
+// animatons
+
+const sliderAnimeBottom = keyframes`
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
+// css
+
 const StatSection = styled.section`
+  animation: ${sliderAnimeBottom} 1s linear;
   color: #333;
   margin-top: 100px;
   h2 {

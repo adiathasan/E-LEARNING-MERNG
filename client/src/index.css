@@ -54,3 +54,8 @@ ul li:last-child {
     border-bottom: 2px solid #041420;
   }
 }
+
+.k {
+  color: #363b3f1f;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+}

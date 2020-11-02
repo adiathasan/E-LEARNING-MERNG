@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Cli from "../components/Cli.jsx";
 import Flexibility from "../components/Flexibility.jsx";
@@ -13,6 +13,10 @@ const HomeScreenSection = styled.div`
 `;
 
 const HomeScreen = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <HomeScreenSection>
       <ShowCase />

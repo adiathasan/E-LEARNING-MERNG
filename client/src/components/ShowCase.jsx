@@ -8,8 +8,31 @@ import {
   FormControl,
   Grid,
 } from "../utils/style";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
+
+const sliderAnimeLeft = keyframes`
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+
+  }
+`;
+
+const sliderAnimeRight = keyframes`
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 const BaseColorMap = styled(BaseColor)`
   position: relative;
@@ -32,6 +55,9 @@ const ShowCaseSection = styled(Grid)`
     -moz-transform: skewY(-3deg);
     -ms-transform: skewY(-3deg);
     background: white;
+  }
+  .animation {
+    animation: ${sliderAnimeLeft} 1s linear;
   }
   div {
     width: auto;
@@ -61,6 +87,7 @@ const CardWrapper = styled(Card)`
   height: 280px;
   padding: 40px;
   z-index: 100;
+  animation: ${sliderAnimeRight} 1s linear;
   @media (max-width: 786px) {
     width: 450px;
     height: 250px;
@@ -77,7 +104,7 @@ const ShowCase = () => {
     <BaseColorMap>
       <Container>
         <ShowCaseSection>
-          <div>
+          <div className="animation">
             <h1 className="h1">Easy Enrollment</h1>
             <p className="p">Complete MERN Track Path. Now Available!</p>
             <Link to="/item-id">

@@ -14,7 +14,7 @@ const Container = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(${({ span }) => span}, 1fr);
-  gap: 10%;
+  gap: ${({ space }) => (space ? space : "10%")};
   justify-content: center;
   align-items: center;
 `;
@@ -70,9 +70,9 @@ const ButtonOutlineDark = styled(Button)`
 
 const Img = styled.img`
   object-fit: contain;
-  height: ${(height) => height};
-  width: ${(width) => width};
-  max-width: ${(maxWidth) => maxWidth};
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
+  max-width: ${({ maxWidth }) => maxWidth};
 `;
 
 const FormControl = styled.div`

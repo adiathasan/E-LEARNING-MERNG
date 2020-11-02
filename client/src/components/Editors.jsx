@@ -31,7 +31,7 @@ const ButtonStyled = styled(ButtonOutlineDark)`
 
 const Editors = ({ title, language, value, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleChange = (editor, data, value) => {
+  const handleChange = (_, __, value) => {
     onChange(value);
   };
   return (

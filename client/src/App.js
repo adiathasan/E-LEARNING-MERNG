@@ -6,9 +6,11 @@ import Courses from "./screens/Courses.jsx";
 import Sandbox from "./screens/Sandbox.jsx";
 import Footer from "./components/Footer.jsx";
 import styled from "styled-components";
+import Login from "./screens/Login.jsx";
 
 const Consistent = styled.main`
   min-height: 80vh;
+  position: relative;
 `;
 
 const App = () => {
@@ -17,9 +19,10 @@ const App = () => {
       <Navbar />
       <Consistent>
         <Switch>
-          <Route path="/" component={HomeScreen} exact />
+          <Route path="/login" component={Login} />
           <Route path="/courses" component={Courses} />
           <Route path="/sandbox" component={Sandbox} />
+          <Route path="/" component={HomeScreen} exact />
         </Switch>
       </Consistent>
       <Footer />

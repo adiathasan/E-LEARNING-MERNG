@@ -19,14 +19,14 @@ const NavContainer = styled(Container)`
   align-items: center;
   height: 4rem;
   justify-content: space-between;
-  @media (max-width: 500px) {
+  @media (max-width: 540px) {
     flex-direction: column;
     margin-top: 0.4rem;
   }
 `;
 
 const Nav = styled.div`
-  @media (max-width: 500px) {
+  @media (max-width: 540px) {
     background-color: rgba(0, 0, 0, 0.712);
     padding: 1rem;
   }
@@ -80,6 +80,9 @@ const Navbar = () => {
             </li>
             <li>
               <Lk to="/sandbox">Sandbox</Lk>
+            </li>
+            <li>
+              <Lk to="/login">Login</Lk>
             </li>
           </Ul>
         </Nav>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Editors from "../components/Editors";
+import useLocalStorage from "../hooks/useLocalStorage";
 import { Grid } from "../utils/style";
 
 const Editor = styled(Grid)`
   background-color: #034a74;
+  margin: 0 auto;
   margin-top: 4rem;
   grid-template-columns: 33% 33% 33%;
   gap: 0.5rem;
@@ -19,7 +21,7 @@ const Editor = styled(Grid)`
   .JS {
     grid-column: span 2;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 540px) {
     padding-top: 2rem;
   }
 `;
@@ -29,7 +31,7 @@ const Canvas = styled.div`
   h1 {
     text-align: center;
     color: white;
-    background-color: #034a74;
+    background-color: #0473b3;
     padding: 0.3rem 0;
   }
 `;
@@ -42,10 +44,14 @@ const Iframe = styled.iframe`
 `;
 
 const Sandbox = () => {
-  const [html, setHtml] = useState("");
-  const [css, setCss] = useState("");
-  const [javascript, setJavascript] = useState("");
+  const [html, setHtml] = useLocalStorage("html", "");
+  const [css, setCss] = useLocalStorage("css", "");
+  const [javascript, setJavascript] = useLocalStorage("js", "");
   const [srcDoc, setSrcDoc] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -83,7 +89,7 @@ const Sandbox = () => {
         />
       </Editor>
       <Canvas>
-        <h1>Review Your Work Here</h1>
+        <h1>Review Your Work Live!</h1>
         <Iframe
           srcDoc={srcDoc}
           title="output"
